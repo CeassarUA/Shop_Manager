@@ -6,6 +6,38 @@ info:
 servers:
   - url: "http://0.0.0.0:8080"
 paths:
+
+  /sources:
+    get:
+      description: "get all sources"
+      responses:
+        200:
+          description: "OK"
+
+
+  /source:
+    post:
+      description: "add new user"
+      requestBody:
+        content:
+          application/json:
+            schema: # Request body contents
+              type: object
+              properties:
+                name:
+                  type: string
+                url:
+                  type: string
+              example:
+                url: https://google.com
+                name: google
+      responses:
+        '201':
+          description: OK
+
+
+
+
   /:
     get:
       description: "Hello World!"

@@ -1,4 +1,4 @@
-package com.ceassar.plugins
+package com.ceassar.data
 
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
@@ -60,6 +60,7 @@ class UserService(private val database: Database) {
     suspend fun getAll() =
         dbQuery {
             Users.selectAll()
+                .mapUser()
         }
 
 }
